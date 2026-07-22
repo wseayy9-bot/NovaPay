@@ -67,28 +67,28 @@ document.getElementById("plansList").innerHTML=html;
 
 }
 
-function buyPlan(amount,profit){
+// ===== BUY PLAN =====
 
-let myPlans=
-JSON.parse(localStorage.getItem("plans"))||[];
+function buyPlan(amount, profit) {
 
-myPlans.push({
+    let plans = JSON.parse(localStorage.getItem("plans")) || [];
 
-id:Date.now(),
+    plans.push({
+        id: Date.now(),
+        amount: amount,
+        profit: profit,
+        received: 0,
+        status: "active",
+        startTime: Date.now(),
+        nextReward: Date.now() + (22 * 60 * 60 * 1000)
+    });
 
-amount:amount,
+    localStorage.setItem("plans", JSON.stringify(plans));
 
-profit:profit,
+    alert("Investment Successful!");
 
-received:0,
-
-status:"active",
-
-startTime:Date.now(),
-
-nextReward:Date.now()+22*60*60*1000
-
-});
+    location.href = "mystocks.html";
+}
 
 localStorage.setItem("plans",JSON.stringify(myPlans));
 
