@@ -232,3 +232,28 @@ function showPlans(){
 showPlans();
 
 setInterval(showPlans,1000);
+function copyAddress(){
+
+const address=document.getElementById("walletAddress").innerText;
+
+navigator.clipboard.writeText(address);
+
+alert("Wallet Address Copied");
+
+}
+
+function submitDeposit(){
+
+const amount=Number(document.getElementById("depositAmount").value);
+
+if(amount<5){
+
+alert("Minimum Deposit is $5");
+
+return;
+
+}
+
+alert("Deposit request submitted.\nWaiting for confirmation.");
+
+}
