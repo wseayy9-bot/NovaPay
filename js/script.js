@@ -97,3 +97,37 @@ alert("Investment Successful!");
 location.href="mystocks.html";
 
 }
+// ===== UPDATE PLANS =====
+
+function updatePlans() {
+
+    let plans = JSON.parse(localStorage.getItem("plans")) || [];
+    let balance = Number(localStorage.getItem("balance")) || 1;
+
+    plans.forEach(plan => {
+
+        if (plan.status != "active") return;
+
+        while (Date.now() >= plan.nextReward && plan.received < 20) {
+
+            balance += plan.profit;
+
+            plan.received++;
+
+            plan.nextReward += 22 * 60 * 60 * 1000;
+
+        }
+
+        if (plan.received >= 20) {
+
+            plan.status = "completed";
+
+        }
+
+    });
+
+    localStorage.setItem("balance", balance.toFixed(2));
+
+    localStorage.setItem("plans", JSON.stringify(plans));
+
+                }
