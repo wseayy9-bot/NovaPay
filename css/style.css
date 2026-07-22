@@ -408,3 +408,60 @@ display:block;
 font-size:22px;
 margin-bottom:8px;
 }
+.deposit-card{
+
+background:#fff;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+margin-top:20px;
+
+}
+
+.qr{
+
+width:220px;
+margin:20px auto;
+display:block;
+
+}
+
+.address{
+
+background:#f2f2f2;
+padding:12px;
+border-radius:10px;
+word-break:break-all;
+margin:15px 0;
+
+}
+
+.deposit-form{
+
+margin-top:25px;
+
+}
+
+.deposit-form input{
+
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-bottom:15px;
+
+}
+
+.main-btn{
+
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#6C3BFF;
+color:white;
+font-size:16px;
+font-weight:bold;
+
+    }
