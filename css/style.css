@@ -370,3 +370,41 @@ background:linear-gradient(90deg,#6C3BFF,#B54CFF);
 border-radius:20px;
 transition:.5s;
 }
+.wallet-card{
+background:linear-gradient(135deg,#6d28d9,#9333ea);
+padding:30px;
+border-radius:20px;
+color:#fff;
+text-align:center;
+margin:20px 0;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.wallet-card h1{
+font-size:40px;
+margin-top:10px;
+}
+
+.wallet-buttons{
+display:flex;
+gap:15px;
+margin:20px 0;
+}
+
+.wallet-btn{
+flex:1;
+padding:15px;
+background:#fff;
+border-radius:15px;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+color:#6d28d9;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.wallet-btn i{
+display:block;
+font-size:22px;
+margin-bottom:8px;
+}
