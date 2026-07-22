@@ -83,20 +83,7 @@ function buyPlan(amount, profit) {
         nextReward: Date.now() + (22 * 60 * 60 * 1000)
     });
 
-    localStorage.setItem("plans", JSON.stringify(plans));
-
-    alert("Investment Successful!");
-
-    location.href = "mystocks.html";
-}
-
-localStorage.setItem("plans",JSON.stringify(myPlans));
-
-alert("Investment Successful!");
-
-location.href="mystocks.html";
-
-}
+    
 // ===== UPDATE PLANS =====
 
 function updatePlans() {
