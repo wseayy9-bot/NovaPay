@@ -131,3 +131,5 @@ function updatePlans() {
     localStorage.setItem("plans", JSON.stringify(plans));
 
                 }
+updatePlans();
+setInterval(updatePlans,1000);
