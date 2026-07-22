@@ -257,3 +257,48 @@ return;
 alert("Deposit request submitted.\nWaiting for confirmation.");
 
 }
+function submitWithdraw(){
+
+let balance =
+Number(localStorage.getItem("balance")) || 0;
+
+let amount =
+Number(document.getElementById("withdrawAmount").value);
+
+let address =
+document.getElementById("withdrawAddress").value;
+
+if(address==""){
+
+alert("Please enter wallet address");
+
+return;
+
+}
+
+if(amount<5){
+
+alert("Minimum withdraw is $5");
+
+return;
+
+}
+
+if(amount>balance){
+
+alert("Insufficient balance");
+
+return;
+
+}
+
+balance-=amount;
+
+localStorage.setItem(
+"balance",
+balance.toFixed(2)
+);
+
+alert("Withdraw request submitted");
+
+}
