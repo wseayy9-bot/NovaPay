@@ -133,3 +133,102 @@ function updatePlans() {
                 }
 updatePlans();
 setInterval(updatePlans,1000);
+// ===== SHOW PLANS =====
+
+function getRemaining(startTime){
+
+    const end = startTime + (20*24*60*60*1000);
+    const diff = end - Date.now();
+
+    if(diff <= 0){
+        return "Completed";
+    }
+
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+
+    return `${d}D ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+function showPlans(){
+
+    const box = document.getElementById("myPlans");
+
+    if(!box) return;
+
+    const plans = JSON.parse(localStorage.getItem("plans")) || [];
+
+    const page = window.location.pathname;
+
+    let list = [];
+
+    if(page.includes("completed.html")){
+        list = plans.filter(p=>p.status=="completed");
+    }else{
+        list = plans.filter(p=>p.status=="active");
+    }
+
+    let html = "";
+
+    list.forEach(plan=>{
+
+        const percent = (plan.received/20)*100;
+
+        html += `
+        <div class="plan-card">
+
+            <div class="plan-header">
+
+                <h3>$${plan.amount} PLAN</h3>
+
+                <span>${plan.received}/20</span>
+
+            </div>
+
+            <div class="plan-info">
+
+                <div>
+
+                    <small>Investment</small>
+
+                    <h4>$${plan.amount}</h4>
+
+                </div>
+
+                <div>
+
+                    <small>Daily Profit</small>
+
+                    <h4>$${plan.profit}</h4>
+
+                </div>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="progress-bar"
+                style="width:${percent}%"></div>
+
+            </div>
+
+            <p class="countdown">
+
+            ⏰ ${getRemaining(plan.startTime)}
+
+            </p>
+
+        </div>
+        `;
+
+    });
+
+    box.innerHTML = html;
+
+}
+
+showPlans();
+
+setInterval(showPlans,1000);
